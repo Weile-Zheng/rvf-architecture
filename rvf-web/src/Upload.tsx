@@ -1,8 +1,14 @@
 import { UploadDropzone } from "@bytescale/upload-widget-react";
 import { useState } from "react";
 
+/***********************************************************
+ * Left Component: File Drop Zone
+ * Style: app.css
+ * 
+ * Get API key: https://www.bytescale.com/get-started
+ ***********************************************************/
 const options = {
-	apiKey: "free", // Get API key: https://www.bytescale.com/get-started
+	apiKey: "free",
 	maxFileCount: 1,
 	showFinishButton: true, // Note: You must use 'onUpdate' if you set 'showFinishButton: false' (default).
 	styles: {
@@ -17,8 +23,13 @@ interface File {
 }
 
 const Upload = () => {
-	const [key, setKey] = useState(0);
+	const [statekey, setKey] = useState(0);
 
+	/**
+	 * Callback function upon user complete
+	 * @param files file path address at x.firlURL
+	 * Expecting return body to contain gradcam and prediction result. 
+	 */
 	const handleComplete = async (files: File[]) => {
 		const fileUrls = files.map((x: File) => x.fileUrl);
 		try {
@@ -40,12 +51,12 @@ const Upload = () => {
 			console.error("Error uploading files: ", error);
 		}
 
-		setKey((prevKey) => prevKey + 1); // Change state to force re-render
+		setKey(statekey + 1); // Change state to force re-render
 	};
 
 	return (
 		<UploadDropzone
-			key={key} // Add key prop here
+			key={statekey} // Add key prop here
 			options={options}
 			onUpdate={({ uploadedFiles }) =>
 				console.log(uploadedFiles.map((x) => x.fileUrl).join("\n"))
