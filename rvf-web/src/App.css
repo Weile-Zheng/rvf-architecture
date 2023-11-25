@@ -1,0 +1,41 @@
+#root {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 200px;
+  margin: 0 auto; /* Add bottom margin */
+  text-align: center;
+}
+
+h1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.upload-widgit_root{
+  margin-top: 1000px;
+  grid-column: 1;
+}
+
+.icon{
+  grid-column: 2;
+  height: 300px;
+  width: 280px; 
+}
+
+
+#outlined-box {
+  grid-column: 3;
+  border: 2px dashed white; /* Change color as needed */
+  width: 290px; /* Adjust width as needed */
+  height: 400px; /* Adjust height as needed */
+  
+}
+
+.Detail {
+  padding-top: 200px;
+  grid-column: span 3; /* Span across three columns */
+  color: #719fde;
+}
