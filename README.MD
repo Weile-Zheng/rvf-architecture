@@ -12,3 +12,5 @@ Nathan tkdang97@gmail.com [dangk01](https://github.com/dangk01)
 
 Dennis dennisfj@umich.edu [dennisfarmer](https://github.com/dennisfarmer)
 
+
+[Presentation Slides](https://docs.google.com/presentation/d/14KdpuFMqFfnKe5M7K4QRyPROVCyOtDu0aSvHb-bYHrQ/edit?usp=sharing)
