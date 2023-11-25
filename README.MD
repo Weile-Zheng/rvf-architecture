@@ -1,5 +1,5 @@
 
-
+![Icon](rvf-web/asset/icon.png)
 ## Team
 
 Avi avibhatt@umich.edu [avi22bhattacharya](https://github.com/avi22bhattacharya)
