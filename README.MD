@@ -1,5 +1,10 @@
+<p align="center">
+  <img src="rvf-web/asset/icon.png" height="200">
+  <h2 align="center">MDST RvF 2023</h2>
+  <p align="center">Are the faces photoshopped? <p>
+</p>
 
-![Icon](rvf-web/asset/icon.png)
+
 ## Team
 
 Avi avibhatt@umich.edu [avi22bhattacharya](https://github.com/avi22bhattacharya)
