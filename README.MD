@@ -1,7 +1,7 @@
 <p align="center">
   <img src="rvf-web/asset/icon.png" height="200">
   <h2 align="center">MDST RvF 2023</h2>
-  <p align="center">Are the faces photoshopped? <p>
+  <p align="center">Are these faces photoshopped? <p>
   <p align="center">
   <img src="./public/p1.png" height="200" alt="Image 1" />
   <img src="./public/p2.png" height="200" alt="Image 2" />
