@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="rvf-web/asset/icon.png" height="200">
+  <img src="rvf-web/client/asset/icon.png" height="200">
   <h2 align="center">MDST RvF 2023</h2>
   <p align="center">Are these faces photoshopped? <p>
   <p align="center">
