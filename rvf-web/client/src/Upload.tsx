@@ -4,7 +4,7 @@ import { useState } from "react";
 /***********************************************************
  * Left Component: File Drop Zone
  * Style: app.css
- * 
+ *
  * Get API key: https://www.bytescale.com/get-started
  ***********************************************************/
 const options = {
@@ -28,12 +28,12 @@ const Upload = () => {
 	/**
 	 * Callback function upon user complete
 	 * @param files file path address at x.firlURL
-	 * Expecting return body to contain gradcam and prediction result. 
+	 * Expecting return body to contain gradcam and prediction result.
 	 */
 	const handleComplete = async (files: File[]) => {
 		const fileUrls = files.map((x: File) => x.fileUrl);
 		try {
-			const response = await fetch("https://api.example.com/upload", {
+			const response = await fetch("http://localhost:4000/process", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -58,9 +58,7 @@ const Upload = () => {
 		<UploadDropzone
 			key={statekey} // Add key prop here
 			options={options}
-			onUpdate={({ uploadedFiles }) =>
-				console.log(uploadedFiles.map((x) => x.fileUrl).join("\n"))
-			}
+			onUpdate={({ uploadedFiles }) => console.log(uploadedFiles.map((x) => x.fileUrl).join("\n"))}
 			onComplete={handleComplete}
 			width="600px"
 			height="375px"

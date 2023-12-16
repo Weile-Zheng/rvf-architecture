@@ -4,17 +4,19 @@ const cors=require('cors'); // Require future setup when website address is dete
 const app = express();
 
 var corsOptions = {
-    // ToDO:
-    // origin: 
+    origin: 'http://localhost:5173'
+
     // optionsSuccessStatus:
 }
 
 app.use(cors(corsOptions));
 
-// Setting up url routes
-
 const processRouter = require("./routes/process")
 app.use(express.json());
 app.use("/process", processRouter);
+
+app.get('/', (req, res)=>{
+    res.send("Use /process to handle image rvf evalutation");
+})
 
 app.listen(4000, ()=>console.log("Server Started"));
