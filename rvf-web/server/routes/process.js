@@ -3,7 +3,6 @@ const router = express.Router();
 const runEvaluate = require("../pyscript");
 
 router.use(logger);
-
 // root route of process
 router
 	.route("/")
@@ -13,7 +12,10 @@ router
 	 */
 	.post(async (req, res) => {
 		try {
-			const result = await runEvaluate();
+			// Get incoming user uploaded image link
+			const imageFileLink = req.body.fileUrls;
+			// Call evaluation with the link provided.
+			const result = await runEvaluate(imageFileLink);
 			res.json({ result: result });
 		} catch (error) {
 			res.status(500).json({ error: "Error evaluting image" });

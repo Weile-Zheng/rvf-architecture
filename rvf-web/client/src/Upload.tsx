@@ -22,7 +22,11 @@ interface File {
 	fileUrl: string;
 }
 
-const Upload = () => {
+interface UploadProps {
+	setResponseData: (value: string) => void;
+}
+
+const Upload = ({ setResponseData }: UploadProps) => {
 	const [statekey, setKey] = useState(0);
 
 	/**
@@ -32,6 +36,7 @@ const Upload = () => {
 	 */
 	const handleComplete = async (files: File[]) => {
 		const fileUrls = files.map((x: File) => x.fileUrl);
+		console.log(fileUrls);
 		try {
 			const response = await fetch("http://localhost:4000/process", {
 				method: "POST",
@@ -44,8 +49,9 @@ const Upload = () => {
 			if (!response.ok) {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
-
-			const data = await response.json();
+			// update it in parent context for other componet to use.
+			const data = JSON.stringify(await response.json());
+			setResponseData(data);
 			console.log(data);
 		} catch (error) {
 			console.error("Error uploading files: ", error);
@@ -58,7 +64,7 @@ const Upload = () => {
 		<UploadDropzone
 			key={statekey} // Add key prop here
 			options={options}
-			onUpdate={({ uploadedFiles }) => console.log(uploadedFiles.map((x) => x.fileUrl).join("\n"))}
+			//onUpdate={({ uploadedFiles }) => console.log(uploadedFiles.map((x) => x.fileUrl).join("\n"))}
 			onComplete={handleComplete}
 			width="600px"
 			height="375px"
