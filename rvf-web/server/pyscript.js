@@ -28,7 +28,7 @@ function runEvaluate(imageLink) {
 
 		python.on("close", (code) => {
 			if (code !== 0) {
-				reject(`Child process exited with code: ${code}`);
+				rejects(`Child process exited with code: ${code}`);
 			} else {
 				resolve(returnMessage);
 			}
