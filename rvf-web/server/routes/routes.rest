@@ -2,5 +2,5 @@ POST http://localhost:4000/process
 Content-Type: application/json
 
 {
-    "fileUrls": "testing.com"
+    "fileUrls": "https://upcdn.io/W142hJk/raw/demo/4kxNQ7nt9w.jpeg"
 }

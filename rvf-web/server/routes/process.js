@@ -18,7 +18,7 @@ router
 			const result = await runEvaluate(imageFileLink);
 			res.json({ result: result });
 		} catch (error) {
-			res.status(500).json({ error: "Error evaluting image" });
+			res.status(500).json({ error: error });
 		}
 	});
 

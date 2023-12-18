@@ -1,4 +1,3 @@
-const { rejects } = require("assert");
 const { spawn } = require("child_process");
 
 /**
@@ -12,9 +11,10 @@ const { spawn } = require("child_process");
  */
 function runEvaluate(imageLink) {
 	return new Promise((resolve, reject) => {
-		const pyVersion = "python3";
-		const pyPath = "./python/evaluate.py";
-		const python = spawn(pyVersion, [pyPath, imageLink]);
+		const pyVersion = "/usr/local/bin/python3";
+		const pyPath = "evaluate.py";
+		// Set current working directory to be in that of the python script
+		const python = spawn(pyVersion, [pyPath, imageLink], { cwd: "./python" });
 
 		let returnMessage = "";
 
@@ -28,7 +28,7 @@ function runEvaluate(imageLink) {
 
 		python.on("close", (code) => {
 			if (code !== 0) {
-				rejects(`Child process exited with code: ${code}`);
+				reject(`Child process exited with code: ${code}`);
 			} else {
 				resolve(returnMessage);
 			}
