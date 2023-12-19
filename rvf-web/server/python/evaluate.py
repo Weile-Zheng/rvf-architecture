@@ -29,5 +29,5 @@ img_tensor=img_tensor.unsqueeze(0)
 
 output=model(img_tensor)
 _, predicted = torch.max(output.data, 1) # get predicted class
-real_fake = "real" if predicted==0 else "fake"
+real_fake = "real" if predicted==1 else "fake"
 print(f"Final Prediction: {predicted} ----> {real_fake}")

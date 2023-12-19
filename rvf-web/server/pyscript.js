@@ -11,7 +11,7 @@ const { spawn } = require("child_process");
  */
 function runEvaluate(imageLink) {
 	return new Promise((resolve, reject) => {
-		const pyVersion = "/usr/local/bin/python3";
+		const pyVersion = "python3";
 		const pyPath = "evaluate.py";
 		// Set current working directory to be in that of the python script
 		const python = spawn(pyVersion, [pyPath, imageLink], { cwd: "./python" });

@@ -3,8 +3,9 @@ import urllib.request
 from PIL import Image
 import io
 import torch
+import numpy as np
 from torchvision.transforms import functional
-url = "https://upcdn.io/W142hJk/raw/demo/4kxNQ7nt9w.jpeg"
+url = "https://upcdn.io/W142hJk/raw/demo/4kx2yRRZDZ.jpg"
 
 with urllib.request.urlopen(url) as url:
     file = io.BytesIO(url.read())
@@ -26,5 +27,30 @@ img_tensor=img_tensor.unsqueeze(0)
 
 output=model(img_tensor)
 _, predicted = torch.max(output.data, 1) # get predicted class
-real_fake = "real" if predicted==0 else "fake"
+real_fake = "real" if predicted==1 else "fake"
 print(f"Final Prediction: {predicted} ----> {real_fake}")
+
+# Import necessary gradcam libraries
+from pytorch_grad_cam import GradCAM
+from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
+from pytorch_grad_cam.utils.image import show_cam_on_image
+
+# Create grad cam with model and convo layers
+cam = GradCAM(model=model, target_layers=[model.conv2, model.conv3])
+
+# What part of the image contribute to the decision of fake prediction? 
+targets = [ClassifierOutputTarget(0)]
+
+# Cam with img tensor and target 
+grayscale_cam = cam(input_tensor=img_tensor, targets=targets)
+
+# In this example grayscale_cam has only one image in the batch:
+grayscale_cam = grayscale_cam[0, :]
+
+# Normalize img for subsequent gradcam operations
+img = np.float32(img) / 255
+visualization = show_cam_on_image(img, grayscale_cam, use_rgb=True)
+
+# Display ---- 
+plt.imshow(visualization)
+plt.show()
