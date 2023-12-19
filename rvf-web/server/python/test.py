@@ -5,7 +5,9 @@ import io
 import torch
 import numpy as np
 from torchvision.transforms import functional
-url = "https://upcdn.io/W142hJk/raw/demo/4kx2yRRZDZ.jpg"
+url = "https://upcdn.io/W142hJk/raw/demo/4kwyRaKu5x.webp"
+
+
 
 with urllib.request.urlopen(url) as url:
     file = io.BytesIO(url.read())
@@ -18,7 +20,7 @@ img = functional.resize(img, (224, 224), antialias=True)
 
 from model import Net2 # pylint: disable=unused-import
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = torch.load("./final_model.pth", map_location=device)
+model = torch.load("./final_model2.pth", map_location=device)
 model.eval() # Evaluatioin mode
 img_tensor= functional.to_tensor(img)
 img_tensor= functional.normalize(img_tensor, mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])

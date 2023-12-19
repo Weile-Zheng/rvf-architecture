@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const runEvaluate = require("../pyscript");
+const crypto = require("crypto");
+
+// TODO: change after deployment
+const serverUrl = "http://localhost:4000";
 
 router.use(logger);
 // root route of process
@@ -14,9 +18,14 @@ router
 		try {
 			// Get incoming user uploaded image link
 			const imageFileLink = req.body.fileUrls;
-			// Call evaluation with the link provided.
-			const result = await runEvaluate(imageFileLink);
-			res.json({ result: result });
+
+			// Session ID
+			const sessionID = crypto.randomBytes(3).toString("hex");
+
+			// Gradcam images served under /gradcam/grad<sessionID>
+			const gradCamPath = `${serverUrl}/gradcam/grad${sessionID}.png`; // Call evaluation with the link provided.
+			const result = await runEvaluate(imageFileLink, sessionID);
+			res.json({ result: result, gradCamPath: gradCamPath });
 		} catch (error) {
 			res.status(500).json({ error: error });
 		}
