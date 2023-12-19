@@ -9,6 +9,7 @@
 </p>
 </p>
 
+<img src="./public/web1.png" alt="Web 1" />
 ## Team
 
 Avi avibhatt@umich.edu [avi22bhattacharya](https://github.com/avi22bhattacharya)
