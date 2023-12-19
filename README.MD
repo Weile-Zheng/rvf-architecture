@@ -24,6 +24,8 @@ Dennis dennisfj@umich.edu [dennisfarmer](https://github.com/dennisfarmer) Model 
 
 [Presentation Slides](https://docs.google.com/presentation/d/14KdpuFMqFfnKe5M7K4QRyPROVCyOtDu0aSvHb-bYHrQ/edit?usp=sharing)
 
+<img src="./public/web1.png" alt="Web 1" />
+
 ## GradCam Showcase
 
 <p align="center">
