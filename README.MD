@@ -9,7 +9,6 @@
 </p>
 </p>
 
-<img src="./public/web1.png" alt="Web 1" />
 ## Team
 
 Weile weilez@umich.edu [Weile-Zheng](https://github.com/Weile-Zheng) Model Designing, Web Development
